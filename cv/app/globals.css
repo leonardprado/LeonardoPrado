@@ -71,7 +71,7 @@
         }
         .contact-info p .icon, .aptitudes ul li::before {
             margin-right: 10px;
-            font-size: 1.1em;
+            font-size: 1.2em;
             width: 20px;
             text-align: center;
             flex-shrink: 0; /* Prevent icon from shrinking */
@@ -262,7 +262,7 @@
                 font-size: 0.85em;
             }
             .contact-info p .icon, .aptitudes ul li::before {
-                font-size: 1em;
+                font-size: 1.2em;
             }
         }
 
