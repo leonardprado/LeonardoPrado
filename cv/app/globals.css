@@ -1,122 +1,285 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-}
+       :root {
+            --primary-bg: #0D1B2A; /* Dark blue-gray for main background */
+            --secondary-bg: #004A55; /* Dark teal for left column and accents */
+            --text-light: #E0E0E0; /* Light gray for most text */
+            --text-white: #FFFFFF;
+            --accent-color: #61C0BF; /* Lighter teal for specific text like company names */
+            --heading-border: #003339; /* Darker teal for hr lines */
+        }
 
-:root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
+     
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            color: var(--text-light);
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            line-height: 1.6; /* Improved default line height */
+        }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-}
+        .resume-container {
+            display: flex;
+            width: 90%; /* Start with a percentage for better fluidity */
+            max-width: 850px; /* Max width like the original */
+            min-height: 1000px; /* Approximate height */
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            background-color: var(--primary-bg); /* Ensure container has base bg */
+        }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
+        .left-column {
+            background-color: var(--secondary-bg);
+            width: 35%;
+            padding: 30px 20px;
+            color: var(--text-white);
+        }
+
+        .profile-pic-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--text-white);
+        }
+
+        .left-column h2 {
+            font-size: 1.1em;
+            text-transform: uppercase;
+            color: var(--text-white);
+            border-bottom: 2px solid var(--heading-border);
+            padding-bottom: 8px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info p, .aptitudes ul li {
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .contact-info p .icon, .aptitudes ul li::before {
+            margin-right: 10px;
+            font-size: 1.1em;
+            width: 20px;
+            text-align: center;
+            flex-shrink: 0; /* Prevent icon from shrinking */
+        }
+
+
+        .aptitudes ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .aptitudes ul li::before {
+            content: "•";
+            color: var(--text-white);
+            display: inline-block; /* Keep this if using content, not needed if icon is span */
+        }
+
+
+        .right-column {
+            /* background-color: var(--primary-bg); No need, parent has it */
+            width: 65%;
+            padding: 30px 40px;
+        }
+
+        .right-column .header {
+            margin-bottom: 25px;
+        }
+
+        .right-column .header h1 {
+            font-size: 2.8em;
+            color: var(--text-white);
+            margin: 0 0 10px 0;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        .right-column .header .summary {
+            font-size: 0.9em;
+            line-height: 1.5;
+            color: var(--text-light);
+            border-top: 3px solid var(--heading-border);
+            padding-top: 15px;
+        }
+
+        .right-column h2 {
+            font-size: 1.2em;
+            text-transform: uppercase;
+            color: var(--text-white);
+            border-bottom: 2px solid var(--heading-border);
+            padding-bottom: 8px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .education-item, .job {
+            margin-bottom: 20px;
+        }
+
+        .education-item p, .job p {
+            margin: 5px 0;
+            font-size: 0.9em;
+        }
+
+        .education-item .degree, .job .job-title {
+            font-weight: bold;
+            color: var(--text-white);
+            font-size: 1em;
+        }
+
+        .education-item .institution, .job .company-location {
+            color: var(--accent-color);
+            font-size: 0.95em;
+        }
+        .education-item .year, .job .dates {
+            font-size: 0.85em;
+            color: var(--text-light);
+        }
+
+        .job .dates {
+            float: right;
+            font-style: italic;
+        }
+        .job-header {
+            overflow: hidden; /* To contain the floated dates */
+            margin-bottom: 5px;
+        }
+
+        .job ul {
+            list-style-type: disc; /* Changed from none to disc for visibility */
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .job ul li {
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        /* --- RESPONSIVE STYLES --- */
+
+        /* Tablet View (e.g., up to 992px) */
+        @media (max-width: 992px) {
+            .resume-container {
+                width: 95%;
+                max-width: none; /* Allow it to be more fluid */
+            }
+            .right-column .header h1 {
+                font-size: 2.4em;
+            }
+            .right-column {
+                padding: 25px 30px;
+            }
+            .left-column {
+                padding: 25px 15px;
+            }
+        }
+
+
+        /* Mobile View (e.g., up to 768px) - Stack columns */
+        @media (max-width: 768px) {
+            body {
+                padding: 0; /* Remove body padding for mobile to use full width */
+            }
+            .resume-container {
+                flex-direction: column;
+                width: 100%;
+                min-height: auto; /* Allow height to adjust to content */
+                box-shadow: none;
+            }
+
+            .left-column, .right-column {
+                width: 100%; /* Make columns full width */
+                padding: 20px; /* Consistent padding */
+                box-sizing: border-box; /* Ensure padding doesn't add to width */
+            }
+
+            .left-column {
+                padding-bottom: 10px; /* Reduce bottom padding if sections are distinct */
+            }
+            .right-column {
+                padding-top: 10px; /* Reduce top padding */
+            }
+
+
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
+
+            .right-column .header h1 {
+                font-size: 2em;
+                text-align: center; /* Center name on mobile */
+            }
+            .right-column .header .summary {
+                font-size: 0.85em;
+                text-align: justify;
+            }
+
+            .right-column h2 {
+                font-size: 1.1em;
+                text-align: center; /* Center section titles */
+            }
+            .education-item .degree, .job .job-title {
+                font-size: 0.95em;
+            }
+            .education-item p, .job p, .job ul li {
+                font-size: 0.85em;
+            }
+
+            .job .dates {
+                float: none; /* Remove float */
+                display: block; /* Make it a block element */
+                text-align: left; /* Align to left under job title */
+                margin-top: 2px;
+                margin-bottom: 8px; /* Add some space before company */
+                font-style: normal;
+                font-weight: bold;
+                color: var(--text-light);
+            }
+            .job .job-header {
+                overflow: visible; /* Reset overflow */
+            }
+            .job .company-location {
+                display: block; /* Ensure it's on a new line if dates were above */
+            }
+
+            .contact-info p, .aptitudes ul li {
+                font-size: 0.85em;
+            }
+            .contact-info p .icon, .aptitudes ul li::before {
+                font-size: 1em;
+            }
+        }
+
+        /* Further refinements for very small screens (e.g., up to 480px) */
+        @media (max-width: 480px) {
+            .right-column .header h1 {
+                font-size: 1.8em;
+            }
+             .left-column h2, .right-column h2 {
+                font-size: 1em;
+             }
+            .profile-pic {
+                width: 100px;
+                height: 100px;
+            }
+             .education-item p, .job p, .job ul li, .right-column .header .summary,
+             .contact-info p, .aptitudes ul li {
+                font-size: 0.8em;
+            }
+        }
